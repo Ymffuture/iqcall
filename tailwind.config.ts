@@ -18,7 +18,6 @@ const config = {
       },
     },
     extend: {
-    extend: {
   colors: {
     dark: {
       1: '#1B1F33',  // Darker grey-blue background
@@ -59,7 +58,6 @@ const config = {
       card: '#FFFFFF',  // Pure white for card backgrounds
     },
   },
-},
 
       keyframes: {
         'accordion-down': {
