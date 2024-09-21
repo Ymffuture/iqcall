@@ -30,12 +30,12 @@ export default function RootLayout({
             logoImageUrl: "/icons/logo.png",
           },
           variables: {
-            colorText: "#fff",
-            colorPrimary: "#0E78F9",
-            colorBackground: "#1E2757",
-            colorInputBackground: "#252A41",
-            colorInputText: "#fff",
-          },
+  colorText: "#F0F0F0",             // Light text color for contrast
+  colorPrimary: "#FF6B30",          // Vibrant primary color for buttons
+  colorBackground: "#1E1E2E",       // Darker background for depth
+  colorInputBackground: "#2D2F4D",  // Softer dark background for inputs
+  colorInputText: "#FFFFFF",        // White text in inputs for readability
+},
         }}
       >
         <body className={`${inter.className} bg-dark-3`}>
