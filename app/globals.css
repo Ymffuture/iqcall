@@ -19,22 +19,22 @@
 }
 
 .str-video__participant-details {
-  color: white;
+  color: #E0E0E0; /* Softer light gray */
 }
 
 .str-video__menu-container {
-  color: white;
+  color: #E0E0E0; /* Softer light gray */
 }
 
 .str-video__notification {
-  color: white;
+  color: #E0E0E0; /* Softer light gray */
 }
 
 .str-video__participant-list {
-  background-color: #1c1f2e;
+  background-color: #1c1f2e; /* Dark background */
   padding: 10px;
   border-radius: 10px;
-  color: white;
+  color: #E0E0E0; /* Softer light gray */
   height: 100%;
 }
 
@@ -47,6 +47,7 @@
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
+
 .glassmorphism2 {
   background: rgba(18, 17, 17, 0.25);
   backdrop-filter: blur(8px);
@@ -56,26 +57,28 @@
 /* ==== clerk class override ===== */
 
 .cl-userButtonPopoverActionButtonIcon {
-  color: white;
+  color: #E0E0E0; /* Softer light gray */
 }
 
 .cl-logoBox {
   height: 40px;
 }
+
 .cl-dividerLine {
-  background: #252a41;
+  background: #252a41; /* Keep dark */
   height: 2px;
 }
 
 .cl-socialButtonsIconButton {
-  border: 3px solid #565761;
+  border: 3px solid #565761; /* Darker border */
 }
 
 .cl-internal-wkkub3 {
-  color: white;
+  color: #E0E0E0; /* Softer light gray */
 }
+
 .cl-userButtonPopoverActionButton {
-  color: white;
+  color: #E0E0E0; /* Softer light gray */
 }
 
 /* =============================== */
