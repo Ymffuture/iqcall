@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "IQchat",
   description: "Video calling App",
   icons: {
-    icon: "/icons/logo.png",
+    icon: "/icons/logo.svg",
   },
 };
 
