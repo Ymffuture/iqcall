@@ -20,42 +20,27 @@ const config = {
     extend: {
   colors: {
     dark: {
-      1: '#1B1F33',  // Darker grey-blue background
-      2: '#161A29',  // Slightly lighter background
-      3: '#2B2F47',  // Darker elements, like card background
-      4: '#1A223E',  // A deep blue accent for buttons or highlights
-      background: '#10101A',  // Main dark background
-      text: '#D1D1E9',  // Softer light text color
-      card: '#24283B',  // Card background (slightly lighter)
-      border: '#3C3F52',  // Grey for borders and dividers
+      1: '#1E1E2E', // A slightly lighter dark
+      2: '#14161A', // Darker variant for depth
+      3: '#2D2F4D', // Softer dark blue
+      4: '#1E2757', // Rich navy
     },
     blue: {
-      1: '#0A74DA',  // Brighter blue for primary elements
-      primary: '#1D4ED8',  // Main blue shade for dark theme
+      1: '#007BFF', // Brighter blue for better contrast
     },
     sky: {
-      1: '#A4C8FF',  // Softer sky blue for highlights
-      2: '#D6E4FF',  // Very light blue for backgrounds
-      3: '#EAF3FF',  // Lightest blue for extra highlights
+      1: '#A6C8FF', // Soft sky blue
+      2: '#E0F4FF', // Very light blue
+      3: '#F7FCFF', // Almost white for highlights
     },
     orange: {
-      1: '#FF6B35',  // Bright orange for accents and warnings
+      1: '#FF6B30', // A vibrant orange
     },
     purple: {
-      1: '#A259FF',  // Vibrant purple for a stylish look
+      1: '#6F42C1', // Muted purple for elegance
     },
     yellow: {
-      1: '#F2C94C',  // Warm yellow for attention-grabbing elements
-      accent: '#F2994A',  // Orange-yellow for dark theme accents
-    },
-    light: {
-      background: '#F9FAFB',  // Very light grey background
-      text: '#202124',  // Dark text for readability
-      primary: '#3B82F6',  // Bright blue for buttons and accents
-      secondary: '#10B981',  // Green for secondary elements
-      accent: '#F59E0B',  // Orange accent for highlights
-      border: '#E5E7EB',  // Light grey for borders
-      card: '#FFFFFF',  // Pure white for card backgrounds
+      1: '#FFC107', // A brighter, more vibrant yellow
     },
   },
 
