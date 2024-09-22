@@ -37,9 +37,9 @@ const Home = () => {
       <div className="h-[303px] w-full rounded-[20px] bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 shadow-xl">
         <div className="flex h-full flex-col justify-between p-5 lg:p-11">
           <h2 className="glassmorphism max-w-[300px] rounded py-2 text-center text-sm font-medium bg-white bg-opacity-20">
-            Upcoming Meeting:
+            Upcoming Meeting: {dateTime.date} - {dateTime.time} 
           </h2>
-          <p><CallList type="upcoming" /> </p>
+          
           <div className="flex flex-col gap-2">
             <h1 className="text-4xl font-extrabold lg:text-6xl">{dateTime.time}</h1>
             <p className="text-lg font-semibold text-blue-200 lg:text-2xl">{dateTime.date}</p>
