@@ -39,7 +39,7 @@ const Home = () => {
           <h2 className="glassmorphism max-w-[300px] rounded py-2 text-center text-sm font-medium bg-white bg-opacity-20">
             Upcoming Meeting:
           </h2>
-          <p className="w-[15%] h-[15%] bg-hero"> <CallList type="upcoming"/> </p>
+          <p className="h-[10%] absolute bg-hero"> <CallList type="upcoming"/> </p>
           <div className="flex flex-col gap-2">
             <h1 className="text-4xl font-extrabold lg:text-6xl">{dateTime.time}</h1>
             <p className="text-lg font-semibold text-blue-200 lg:text-2xl">{dateTime.date}</p>
