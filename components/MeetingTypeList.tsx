@@ -106,7 +106,7 @@ const MeetingTypeList = () => {
         onClose={() => setMeetingState(undefined)}
         title="Create Meeting"
         handleClick={createMeeting}
-        className="bg-white rounded-lg p-6 shadow-xl"
+        className="rounded-lg p-6 shadow-xl"
       >
         <div className="flex flex-col gap-4">
           <label className="text-lg font-semibold text-gray-700">
@@ -146,7 +146,7 @@ const MeetingTypeList = () => {
         }}
         image={'/icons/checked.svg'}
         buttonIcon="/icons/copy.svg"
-        className="text-center bg-white rounded-lg p-6 shadow-xl"
+        className="text-center rounded-lg p-6 shadow-xl"
         buttonText="Copy Meeting Link"
       />
     )}
@@ -155,7 +155,7 @@ const MeetingTypeList = () => {
       isOpen={meetingState === 'isJoiningMeeting'}
       onClose={() => setMeetingState(undefined)}
       title="Type the link here"
-      className="text-center bg-white rounded-lg p-6 shadow-xl"
+      className="text-center rounded-lg p-6 shadow-xl"
       buttonText="Join Meeting"
       handleClick={() => router.push(values.link)}
     >
@@ -170,7 +170,7 @@ const MeetingTypeList = () => {
       isOpen={meetingState === 'isInstantMeeting'}
       onClose={() => setMeetingState(undefined)}
       title="Start an Instant Meeting"
-      className="text-center bg-white rounded-lg p-6 shadow-xl"
+      className="text-center rounded-lg p-6 shadow-xl"
       buttonText="Start Meeting"
       handleClick={createMeeting}
     />
