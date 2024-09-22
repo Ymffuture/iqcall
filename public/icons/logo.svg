@@ -1,13 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
-  <!-- Outer rounded rectangle representing the chat bubble -->
-  <rect x="30" y="50" rx="40" ry="40" width="140" height="100" fill="#4285F4"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgb(34,193,195);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(253,187,45);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <g>
+    <!-- Centered Rectangle -->
+    <rect x="17" y="20" width="30" height="24" rx="5" ry="5" fill="url(#grad1)" />
 
-  <!-- Tail of the chat bubble -->
-  <path d="M70 150 L100 130 L60 130 Z" fill="#4285F4"/>
+    <!-- Centered Polygon (Camera Lens) -->
+    <polygon points="47,30 57,24 57,40 47,34" fill="#FF6089" />
 
-  <!-- 'IQ' text inside the chat bubble -->
-  <text x="55" y="110" font-family="Arial" font-size="48" fill="white" font-weight="bold">IQ</text>
-
-  <!-- 'chat' text outside the chat bubble -->
-  <text x="60" y="180" font-family="Arial" font-size="30" fill="#34A853" font-weight="bold" letter-spacing="1">chat</text>
+    <!-- Centered Circle -->
+    <circle cx="40" cy="32" r="10" fill="#FFFFFF" />
+  </g>
 </svg>
