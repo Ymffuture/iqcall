@@ -75,7 +75,7 @@ const MeetingTypeList = () => {
       img="/icons/add-meeting.svg"
       title="New Meeting"
       description="Start an instant meeting"
-      className="transform transition-transform hover:scale-105 shadow-lg rounded-lg p-5 bg-white dark:bg-gray-800"
+      className="transform transition-transform hover:scale-105 shadow-lg rounded-lg p-5 bg-purple-1 dark:bg-gray-800"
       handleClick={() => setMeetingState('isInstantMeeting')}
     />
     <HomeCard
