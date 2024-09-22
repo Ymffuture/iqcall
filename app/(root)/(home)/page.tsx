@@ -1,23 +1,46 @@
+'use client';
 
+import { useState, useEffect } from 'react';
 import MeetingTypeList from '@/components/MeetingTypeList';
 
 const Home = () => {
-  const now = new Date();
+  // State to store current date and time
+  const [dateTime, setDateTime] = useState({
+    time: new Date().toLocaleTimeString('en-UK', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false, // 24-hour format
+    }),
+    date: new Intl.DateTimeFormat('en-UK', { dateStyle: 'full' }).format(new Date()),
+  });
 
-  const time = now.toLocaleTimeString('en-Uk', { hour: '2-digit', minute: '2-digit' });
-  const date = (new Intl.DateTimeFormat('en-Uk', { dateStyle: 'full' })).format(now);
+  // useEffect to update time every minute
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date();
+      setDateTime({
+        time: now.toLocaleTimeString('en-UK', {
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false, // 24-hour format
+        }),
+        date: new Intl.DateTimeFormat('en-UK', { dateStyle: 'full' }).format(now),
+      });
+    }, 60000); // Updates every minute
+
+    return () => clearInterval(timer); // Cleanup on component unmount
+  }, []);
 
   return (
-    <section className="flex size-full flex-col gap-5 text-white">
-      <div className="h-[303px] w-full rounded-[20px] bg-hero bg-cover">
-        <div className="flex h-full flex-col justify-between max-md:px-5 max-md:py-8 lg:p-11">
-          <h2 className="glassmorphism max-w-[273px] rounded py-2 text-center text-base font-normal">
-Upcoming Meeting at: 14:50 PM
-  
+    <section className="flex flex-col gap-5 text-white">
+      <div className="h-[303px] w-full rounded-[20px] bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 shadow-xl">
+        <div className="flex h-full flex-col justify-between p-5 lg:p-11">
+          <h2 className="glassmorphism max-w-[300px] rounded py-2 text-center text-sm font-medium bg-white bg-opacity-20">
+            Upcoming Meeting at: 14:40
           </h2>
           <div className="flex flex-col gap-2">
-            <h1 className="text-4xl font-extrabold lg:text-7xl">{time}</h1>
-            <p className="text-lg font-medium text-sky-1 lg:text-2xl">{date}</p>
+            <h1 className="text-4xl font-extrabold lg:text-6xl">{dateTime.time}</h1>
+            <p className="text-lg font-semibold text-blue-200 lg:text-2xl">{dateTime.date}</p>
           </div>
         </div>
       </div>
