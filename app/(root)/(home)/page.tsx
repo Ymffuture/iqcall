@@ -26,7 +26,7 @@ const Home = () => {
         }),
         date: new Intl.DateTimeFormat('en-UK', { dateStyle: 'full' }).format(now),
       });
-    }, 60000); // Updates every minute
+    }, 1000); // Updates every minute
 
     return () => clearInterval(timer); // Cleanup on component unmount
   }, []);
