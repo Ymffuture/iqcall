@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-/* ======== stream css overrides ======== */
+/* ======== Stream SDK Overrides ======== */
 .str-video__call-stats {
   max-width: 500px;
   position: relative;
@@ -18,23 +18,19 @@
   max-height: 700px;
 }
 
-.str-video__participant-details {
-  color: #E0E0E0; /* Softer light gray */
-}
-
-.str-video__menu-container {
-  color: #E0E0E0; /* Softer light gray */
-}
-
-.str-video__notification {
-  color: #E0E0E0; /* Softer light gray */
+.str-video__participant-details,
+.str-video__menu-container,
+.str-video__notification,
+.cl-userButtonPopoverActionButton,
+.cl-internal-wkkub3 {
+  color: #E0E0E0; /* Soft light gray for readability on dark bg */
 }
 
 .str-video__participant-list {
-  background-color: #1c1f2e; /* Dark background */
+  background-color: #1c1f2e; /* Dark container */
   padding: 10px;
   border-radius: 10px;
-  color: #E0E0E0; /* Softer light gray */
+  color: #E0E0E0;
   height: 100%;
 }
 
@@ -42,22 +38,28 @@
   height: 40px;
 }
 
+/* ======= Glassmorphism Effects ======= */
+
 .glassmorphism {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  border-radius: 12px;
 }
 
 .glassmorphism2 {
   background: rgba(18, 17, 17, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
 }
 
-/* ==== clerk class override ===== */
+/* ======= Clerk Component Overrides ======= */
 
 .cl-userButtonPopoverActionButtonIcon {
-  color: #E0E0E0; /* Softer light gray */
+  color: #E0E0E0;
 }
 
 .cl-logoBox {
@@ -65,24 +67,15 @@
 }
 
 .cl-dividerLine {
-  background: #252a41; /* Keep dark */
+  background: #252a41;
   height: 2px;
 }
 
 .cl-socialButtonsIconButton {
-  border: 3px solid #565761; /* Darker border */
+  border: 3px solid #565761;
 }
 
-.cl-internal-wkkub3 {
-  color: #E0E0E0; /* Softer light gray */
-}
-
-.cl-userButtonPopoverActionButton {
-  color: #E0E0E0; /* Softer light gray */
-}
-
-/* =============================== */
-
+/* ======= Custom Utility Classes ======= */
 @layer utilities {
   .flex-center {
     @apply flex justify-center items-center;
@@ -91,25 +84,62 @@
   .flex-between {
     @apply flex justify-between items-center;
   }
+
+  .brand-facebook {
+    background-color: #1877F2;
+    color: #fff;
+  }
+
+  .brand-google-red {
+    background-color: #EA4335;
+    color: #fff;
+  }
+
+  .brand-google-blue {
+    background-color: #4285F4;
+    color: #fff;
+  }
+
+  .brand-tesla {
+    background-color: #E31937;
+    color: #fff;
+  }
+
+  .brand-discord {
+    background-color: #5865F2;
+    color: #fff;
+  }
+
+  .glass-button {
+    @apply px-4 py-2 rounded-xl font-semibold shadow-md;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .glass-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.03);
+  }
 }
 
-/* animation */
-
+/* ======= Animations ======= */
 .show-block {
   width: 100%;
   max-width: 350px;
   display: block;
-  animation: show 0.7s forwards linear;
+  animation: show 0.7s forwards ease-out;
 }
 
 @keyframes show {
   0% {
-    animation-timing-function: ease-in;
     width: 0%;
+    opacity: 0;
   }
-
   100% {
-    animation-timing-function: ease-in;
     width: 100%;
+    opacity: 1;
   }
 }
+
