@@ -1,17 +1,16 @@
 'use client';
 
 import { Call, CallRecording } from '@stream-io/video-react-sdk';
-
-import Loader from './Loader';
-import { useGetCalls } from '@/hooks/useGetCalls';
-import MeetingCard from './MeetingCard';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+import Loader from './Loader';
+import MeetingCard from './MeetingCard';
+import { useGetCalls } from '@/hooks/useGetCalls';
+
 const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
   const router = useRouter();
-  const { endedCalls, upcomingCalls, callRecordings, isLoading } =
-    useGetCalls();
+  const { endedCalls, upcomingCalls, callRecordings, isLoading } = useGetCalls();
   const [recordings, setRecordings] = useState<CallRecording[]>([]);
 
   const getCalls = () => {
@@ -30,11 +29,11 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
   const getNoCallsMessage = () => {
     switch (type) {
       case 'ended':
-        return 'No Previous Calls';
+        return '🕓 No Previous Calls';
       case 'upcoming':
-        return 'No Upcoming Calls';
+        return '📅 No Upcoming Calls';
       case 'recordings':
-        return 'No Recordings';
+        return '🎥 No Recordings';
       default:
         return '';
     }
@@ -46,16 +45,14 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
         callRecordings?.map((meeting) => meeting.queryRecordings()) ?? [],
       );
 
-      const recordings = callData
+      const fetched = callData
         .filter((call) => call.recordings.length > 0)
         .flatMap((call) => call.recordings);
 
-      setRecordings(recordings);
+      setRecordings(fetched);
     };
 
-    if (type === 'recordings') {
-      fetchRecordings();
-    }
+    if (type === 'recordings') fetchRecordings();
   }, [type, callRecordings]);
 
   if (isLoading) return <Loader />;
@@ -64,7 +61,7 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
   const noCallsMessage = getNoCallsMessage();
 
   return (
-    <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
+    <div className="grid gap-6 sm:grid-cols-1 xl:grid-cols-2 w-full">
       {calls && calls.length > 0 ? (
         calls.map((meeting: Call | CallRecording) => (
           <MeetingCard
@@ -73,13 +70,13 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
               type === 'ended'
                 ? '/icons/previous.svg'
                 : type === 'upcoming'
-                  ? '/icons/upcoming.svg'
-                  : '/icons/recordings.svg'
+                ? '/icons/upcoming.svg'
+                : '/icons/recordings.svg'
             }
             title={
               (meeting as Call).state?.custom?.description ||
               (meeting as CallRecording).filename?.substring(0, 20) ||
-              'No Description'
+              'Untitled Meeting'
             }
             date={
               (meeting as Call).state?.startsAt?.toLocaleString() ||
@@ -101,10 +98,22 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
           />
         ))
       ) : (
-        <h1 className="text-2xl font-bold text-white">{noCallsMessage}</h1>
+        <div className="w-full col-span-full text-center py-20">
+          <h1 className="text-3xl font-semibold text-white/90 mb-2">
+            {noCallsMessage}
+          </h1>
+          <p className="text-md text-white/60">
+            {type === 'upcoming'
+              ? 'Try scheduling one from your dashboard.'
+              : type === 'ended'
+              ? 'Start a meeting and come back here to review history.'
+              : 'Recordings will appear here once available.'}
+          </p>
+        </div>
       )}
     </div>
   );
 };
 
 export default CallList;
+
