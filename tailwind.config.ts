@@ -18,31 +18,56 @@ const config = {
       },
     },
     extend: {
-  colors: {
-    dark: {
-      1: '#1E1E2E', // A slightly lighter dark
-      2: '#14161A', // Darker variant for depth
-      3: '#2D2F4D', // Softer dark blue
-      4: '#1E2757', // Rich navy
-    },
-    blue: {
-      1: '#007BFF', // Brighter blue for better contrast
-    },
-    sky: {
-      1: '#A6C8FF', // Soft sky blue
-      2: '#E0F4FF', // Very light blue
-      3: '#F7FCFF', // Almost white for highlights
-    },
-    orange: {
-      1: '#FF6B30', // A vibrant orange
-    },
-    purple: {
-      1: '#6F42C1', // Muted purple for elegance
-    },
-    yellow: {
-      1: '#FFC107', // A brighter, more vibrant yellow
-    },
-  },
+      colors: {
+        // Dark base theme
+        dark: {
+          1: '#1E1E2E',
+          2: '#14161A',
+          3: '#2D2F4D',
+          4: '#1E2757',
+        },
+
+        // Brand Colors
+        facebook: {
+          DEFAULT: '#1877F2',
+          dark: '#145DBF',
+        },
+        google: {
+          red: '#EA4335',
+          green: '#34A853',
+          yellow: '#FBBC05',
+          blue: '#4285F4',
+        },
+        tesla: {
+          red: '#E31937',
+          dark: '#171A20',
+          silver: '#C0C0C0',
+        },
+        discord: {
+          DEFAULT: '#5865F2',
+          dark: '#404EED',
+          blurple: '#7289DA',
+        },
+
+        // Legacy / Accent Colors
+        blue: {
+          1: '#007BFF',
+        },
+        sky: {
+          1: '#A6C8FF',
+          2: '#E0F4FF',
+          3: '#F7FCFF',
+        },
+        orange: {
+          1: '#FF6B30',
+        },
+        purple: {
+          1: '#6F42C1',
+        },
+        yellow: {
+          1: '#FFC107',
+        },
+      },
 
       keyframes: {
         'accordion-down': {
@@ -58,6 +83,7 @@ const config = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+
       backgroundImage: {
         hero: "url('/images/hero-background.png')",
       },
@@ -67,3 +93,4 @@ const config = {
 } satisfies Config;
 
 export default config;
+
