@@ -8,21 +8,11 @@ import { useGetCallById } from "@/hooks/useGetCallById";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 
-const Table = ({
-  title,
-  description,
-}: {
-  title: string;
-  description: string;
-}) => {
+const Table = ({ title, description }: { title: string; description: string }) => {
   return (
-    <div className="flex flex-col items-start gap-2 xl:flex-row">
-      <h1 className="text-base font-medium text-sky-1 lg:text-xl xl:min-w-32">
-        {title}:
-      </h1>
-      <h1 className="truncate text-sm font-bold max-sm:max-w-[320px] lg:text-xl">
-        {description}
-      </h1>
+    <div className="flex flex-col gap-1 xl:flex-row xl:items-center xl:gap-4">
+      <span className="text-sm font-semibold text-sky-400 xl:w-32">{title}:</span>
+      <span className="text-sm font-medium text-white break-all">{description}</span>
     </div>
   );
 };
@@ -34,12 +24,11 @@ const PersonalRoom = () => {
   const { toast } = useToast();
 
   const meetingId = user?.id;
-
   const { call } = useGetCallById(meetingId!);
+  const meetingLink = `https://iqcall.vercel.app/meeting/${meetingId}?personal=true`;
 
   const startRoom = async () => {
     if (!client || !user) return;
-
     const newCall = client.call("default", meetingId!);
 
     if (!call) {
@@ -53,29 +42,38 @@ const PersonalRoom = () => {
     router.push(`/meeting/${meetingId}?personal=true`);
   };
 
-  const meetingLink = `https://iqcall.vercel.app/meeting/${meetingId}?personal=true`;
+  const handleCopy = () => {
+    navigator.clipboard.writeText(meetingLink);
+    toast({ title: "🔗 Invitation link copied!" });
+  };
+
   return (
-    <section className="flex size-full flex-col gap-10 text-white">
-      <h1 className="text-xl font-bold lg:text-3xl">Personal Meeting Room</h1>
-      <div className="flex w-full flex-col gap-8 xl:max-w-[900px]">
+    <section className="flex w-full flex-col gap-10 text-white">
+      <header className="space-y-2">
+        <h1 className="text-3xl font-bold text-white tracking-tight">Personal Meeting Room</h1>
+        <p className="text-sm text-gray-400">Manage your private room and send invites to friends or clients.</p>
+      </header>
+
+      <div className="w-full max-w-4xl space-y-5 rounded-lg bg-[#1E1E2E]/50 p-6 shadow-xl ring-1 ring-white/10 backdrop-blur-md">
         <Table title="Topic" description={`${user?.username}'s Meeting Room`} />
         <Table title="Meeting ID" description={meetingId!} />
         <Table title="Invite Link" description={meetingLink} />
       </div>
-      <div className="flex gap-5">
-        <Button className="bg-blue-1" onClick={startRoom}>
-          Start Meeting
-        </Button>
+
+      <div className="flex flex-wrap gap-4">
         <Button
-          className="bg-dark-3"
-          onClick={() => {
-            navigator.clipboard.writeText(meetingLink);
-            toast({
-              title: "Link Copied",
-            });
-          }}
+          className="rounded-md bg-[#1877F2] hover:bg-[#166FE0] transition-colors px-6 py-2 text-white font-semibold"
+          onClick={startRoom}
         >
-          Copy Invitation
+          🚀 Start Meeting
+        </Button>
+
+        <Button
+          variant="outline"
+          className="border border-gray-600 text-gray-300 hover:bg-gray-800 transition-colors px-6 py-2"
+          onClick={handleCopy}
+        >
+          📋 Copy Invitation
         </Button>
       </div>
     </section>
@@ -83,3 +81,4 @@ const PersonalRoom = () => {
 };
 
 export default PersonalRoom;
+
