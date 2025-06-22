@@ -3,9 +3,17 @@
     .circle {
       stroke-dasharray: 188.4;
       stroke-dashoffset: 188.4;
-      animation: circleSpin 4s ease-in-out infinite;
-      transform: rotate(-90deg);
       transform-origin: center;
+    }
+
+    .circle-1 {
+      transform: rotate(-90deg);
+      animation: circleSpin1 4s ease-in-out infinite;
+    }
+
+    .circle-2 {
+      transform: rotate(90deg);
+      animation: circleSpin2 4s ease-in-out infinite;
     }
 
     .vision-path {
@@ -13,16 +21,16 @@
       transform-origin: center;
     }
 
-    @keyframes circleSpin {
-      0% {
-        stroke-dashoffset: 188.4;
-      }
-      50% {
-        stroke-dashoffset: 0;
-      }
-      100% {
-        stroke-dashoffset: 188.4;
-      }
+    @keyframes circleSpin1 {
+      0%   { stroke-dashoffset: 188.4; }
+      50%  { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: 188.4; }
+    }
+
+    @keyframes circleSpin2 {
+      0%   { stroke-dashoffset: 188.4; }
+      50%  { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: 188.4; }
     }
 
     @keyframes pulse {
@@ -37,14 +45,16 @@
     }
   </style>
 
-  <!-- Animated clockwise circle stroke -->
-  <circle cx="32" cy="32" r="30" fill="transparent" stroke="#1E90FF" stroke-width="4" class="circle" />
+  <!-- Dual animated circles opening in opposite directions -->
+  <circle cx="32" cy="32" r="30" fill="transparent" stroke="#1E90FF" stroke-width="4" class="circle circle-1" />
+  <circle cx="32" cy="32" r="30" fill="transparent" stroke="#FFD700" stroke-width="4" class="circle circle-2" />
 
-  <!-- Pulsing vision path -->
+  <!-- Eye/vision shape -->
   <path d="M32 20a12 12 0 1 1 0 24m0 0l6 6"
-        stroke="#1E90FF"
+        stroke="#32CD32"
         fill="transparent"
         stroke-width="4"
         stroke-linecap="round"
         class="vision-path" />
 </svg>
+
