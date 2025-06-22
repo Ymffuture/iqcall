@@ -1,14 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" fill="none">
-  <circle cx="30" cy="50" r="10" fill="#4285F4">
-    <animate attributeName="r" from="10" to="10" begin="0s" dur="1s" values="10; 15; 10" calcMode="linear" repeatCount="indefinite" />
-    <animate attributeName="fill-opacity" from="1" to="1" begin="0s" dur="1s" values="1;.5;1" calcMode="linear" repeatCount="indefinite" />
-  </circle>
-  <circle cx="50" cy="50" r="10" fill="#EA4335">
-    <animate attributeName="r" from="10" to="10" begin="0.2s" dur="1s" values="10; 15; 10" calcMode="linear" repeatCount="indefinite" />
-    <animate attributeName="fill-opacity" from="1" to="1" begin="0.2s" dur="1s" values="1;.5;1" calcMode="linear" repeatCount="indefinite" />
-  </circle>
-  <circle cx="70" cy="50" r="10" fill="#FBBC05">
-    <animate attributeName="r" from="10" to="10" begin="0.4s" dur="1s" values="10; 15; 10" calcMode="linear" repeatCount="indefinite" />
-    <animate attributeName="fill-opacity" from="1" to="1" begin="0.4s" dur="1s" values="1;.5;1" calcMode="linear" repeatCount="indefinite" />
-  </circle>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .circle {
+      stroke-dasharray: 188.4;
+      stroke-dashoffset: 188.4;
+      animation: circleSpin 4s ease-in-out infinite;
+      transform: rotate(-90deg);
+      transform-origin: center;
+    }
+
+    .vision-path {
+      animation: pulse 2s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    @keyframes circleSpin {
+      0% {
+        stroke-dashoffset: 188.4;
+      }
+      50% {
+        stroke-dashoffset: 0;
+      }
+      100% {
+        stroke-dashoffset: 188.4;
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        stroke-width: 4;
+        opacity: 1;
+      }
+      50% {
+        stroke-width: 6;
+        opacity: 0.6;
+      }
+    }
+  </style>
+
+  <!-- Animated clockwise circle stroke -->
+  <circle cx="32" cy="32" r="30" fill="transparent" stroke="#1E90FF" stroke-width="4" class="circle" />
+
+  <!-- Pulsing vision path -->
+  <path d="M32 20a12 12 0 1 1 0 24m0 0l6 6"
+        stroke="#1E90FF"
+        fill="transparent"
+        stroke-width="4"
+        stroke-linecap="round"
+        class="vision-path" />
 </svg>
