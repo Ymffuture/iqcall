@@ -143,3 +143,19 @@
   }
 }
 
+/* Add inside globals.css */
+::selection {
+  background: #1877F2;
+  color: #fff;
+}
+
+/* Optional scrollbars for FB style */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #3A3B3C;
+  border-radius: 10px;
+}
+
+
