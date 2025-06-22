@@ -17,29 +17,61 @@ const MeetingPage = () => {
   const { call, isCallLoading } = useGetCallById(id);
   const [isSetupComplete, setIsSetupComplete] = useState(false);
 
-  if (!isLoaded || isCallLoading) return <Loader />;
+  const isUserAllowed =
+    call?.type !== 'invited' ||
+    (user && call?.state?.members?.some((m) => m.user.id === user.id));
 
-  if (!call) return (
-    <p className="text-center text-3xl font-bold text-white">
-      Call Not Found
-    </p>
-  );
+  // ===========================
+  // LOADING STATE
+  // ===========================
+  if (!isLoaded || isCallLoading) {
+    return (
+      <div className="flex h-screen w-full items-center justify-center bg-[#0D1117] text-white">
+        <div className="flex flex-col items-center justify-center gap-3 animate-pulse">
+          <Loader className="w-10 h-10 text-[#1877F2]" />
+          <p className="text-lg font-medium">Preparing your meeting...</p>
+        </div>
+      </div>
+    );
+  }
 
-  // get more info about custom call type:  https://getstream.io/video/docs/react/guides/configuring-call-types/
-  const notAllowed = call.type === 'invited' && (!user || !call.state.members.find((m) => m.user.id === user.id));
+  // ===========================
+  // CALL NOT FOUND
+  // ===========================
+  if (!call) {
+    return (
+      <div className="flex h-screen w-full items-center justify-center bg-[#0D1117] text-white">
+        <div className="rounded-lg bg-[#1E1E2E] px-6 py-4 shadow-xl">
+          <p className="text-2xl font-bold">🚫 Call Not Found</p>
+          <p className="text-sm text-gray-400 mt-2">Double-check your invite or meeting ID.</p>
+        </div>
+      </div>
+    );
+  }
 
-  if (notAllowed) return <Alert title="You are not allowed to join this meeting" />;
+  // ===========================
+  // PERMISSION DENIED
+  // ===========================
+  if (!isUserAllowed) {
+    return (
+      <div className="flex h-screen w-full items-center justify-center bg-[#0D1117]">
+        <Alert title="🚷 You are not allowed to join this meeting" />
+      </div>
+    );
+  }
 
+  // ===========================
+  // MAIN MEETING CONTENT
+  // ===========================
   return (
-    <main className="h-screen w-full">
+    <main className="h-screen w-full bg-[#0D1117] text-white overflow-hidden">
       <StreamCall call={call}>
         <StreamTheme>
-
-        {!isSetupComplete ? (
-          <MeetingSetup setIsSetupComplete={setIsSetupComplete} />
-        ) : (
-          <MeetingRoom />
-        )}
+          {!isSetupComplete ? (
+            <MeetingSetup setIsSetupComplete={setIsSetupComplete} />
+          ) : (
+            <MeetingRoom />
+          )}
         </StreamTheme>
       </StreamCall>
     </main>
@@ -47,3 +79,4 @@ const MeetingPage = () => {
 };
 
 export default MeetingPage;
+
