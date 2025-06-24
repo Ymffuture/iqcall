@@ -1,5 +1,5 @@
 'use client';
-
+import {Helmet} from 'react-helmet' ;
 import { useState } from 'react';
 import {
   CallControls,
@@ -55,6 +55,9 @@ const MeetingRoom = () => {
   return (
     <section className="relative h-screen w-full overflow-hidden bg-[#0b0f1a] text-white">
       {/* Main video display area */}
+      <Helmet >
+      <title >Metting Room setup</title >
+      </Helmet>
       <div className="relative flex size-full items-center justify-center">
         <div className="flex h-full w-full max-w-[1200px] items-center justify-center px-2">
           <CallLayout />
