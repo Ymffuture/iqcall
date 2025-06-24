@@ -48,12 +48,15 @@ const PersonalRoom = () => {
   };
 
   return (
-    <section className="flex w-full flex-col gap-10 text-white">
-<Head>
+    <>
+    <Head>
         <title>My Personal Room | IQcall</title>
         <meta name="description" content="Join your personal video meeting room." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+    
+    <section className="flex w-full flex-col gap-10 text-white">
+
       <header className="space-y-2">
         <h1 className="text-3xl font-bold text-white tracking-tight">Personal Meeting Room</h1>
         <p className="text-sm text-gray-400">Manage your private room and send invites to friends or clients.</p>
@@ -75,13 +78,14 @@ const PersonalRoom = () => {
 
         <Button
           variant="outline"
-          className="border border-gray-600 text-gray-300 hover:bg-gray-800 transition-colors px-6 py-2"
+          className="border border-gray-600 text-[#333] hover:bg-gray-800 transition-colors px-6 py-2"
           onClick={handleCopy}
         >
           📋 Copy Invitation
         </Button>
       </div>
     </section>
+    </>
   );
 };
 
