@@ -33,7 +33,7 @@ export default function RootLayout({
             colorText: "#F0F2F5",                   // Facebook text gray
             colorPrimary: "#1877F2",                // Facebook blue
             colorBackground: "#fff",             // Dark background
-            colorInputBackground: "#1C1E21",        // FB Messenger dark input
+            colorInputBackground: "#B0B3B8",        // FB Messenger dark input
             colorInputText: "#E4E6EB",              // Input readability
             colorTextSecondary: "#B0B3B8",          // Light gray secondary
             colorDanger: "#F02849",                 // Facebook red for danger
@@ -42,7 +42,7 @@ export default function RootLayout({
         }}
       >
         <body
-          className={`${inter.className} bg-[#fff] text-[#F0F2F5] min-h-screen antialiased selection:bg-[#1877F2]/70 selection:text-white`}
+          className={`${inter.className} bg-[#fff] text-[#333] min-h-screen antialiased selection:bg-[#1877F2]/70 selection:text-white`}
         >
           <Toaster />
           {children}
