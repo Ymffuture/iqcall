@@ -1,5 +1,5 @@
 'use client';
-import Head from 'next/head' ;
+import Head from 'next/head';
 import { useState } from 'react';
 import {
   CallControls,
@@ -56,7 +56,7 @@ const MeetingRoom = () => {
     <section className="relative h-screen w-full overflow-hidden bg-[#0b0f1a] text-white">
       {/* Main video display area */}
       <Head>
-        <title>Meeting setup Room | IQcall</title>
+        <title>Meeting setup Room Live</title>
         <meta name="description" content="Join your personal video meeting room." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
