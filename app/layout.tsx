@@ -27,7 +27,7 @@ export default function RootLayout({
         appearance={{
           layout: {
             socialButtonsVariant: "iconButton",
-            logoImageUrl: "/icons/logo.png",
+            logoImageUrl: "/icons/logo.svg",
           },
           variables: {
             colorText: "#F0F2F5",                   // Facebook text gray
