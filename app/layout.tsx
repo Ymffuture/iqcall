@@ -11,7 +11,7 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Log in/ sign up",
+  title: "Chat",
   description: "Video Calling App - Powered by Quorvex institute ",
   icons: {
     icon: "/icons/logo.svg",
@@ -35,7 +35,7 @@ export default function RootLayout({
             colorBackground: "#fff",             // Dark background
             colorInputBackground: "#fff",        // FB Messenger dark input
             colorInputText: "#E4E6EB",              // Input readability
-            colorTextSecondary: "#B0B3B8",          // Light gray secondary
+            colorTextSecondary: "#555",          // Light gray secondary
             colorDanger: "#F02849",                 // Facebook red for danger
             borderRadius: "0.1rem",                 // Rounded inputs/buttons
           },
