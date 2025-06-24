@@ -23,7 +23,7 @@
 .str-video__notification,
 .cl-userButtonPopoverActionButton,
 .cl-internal-wkkub3 {
-  color: #E0E0E0; /* Soft light gray for readability on dark bg */
+  color: #222; /* Soft light gray for readability on dark bg */
 }
 
 .str-video__participant-list {
@@ -146,7 +146,7 @@
 /* Add inside globals.css */
 ::selection {
   background: #1877F2;
-  color: #fff;
+  color: #333;
 }
 
 /* Optional scrollbars for FB style */
