@@ -42,7 +42,7 @@ export default function RootLayout({
         }}
       >
         <body
-          className={`${inter.className} bg-[#0D1117] text-[#F0F2F5] min-h-screen antialiased selection:bg-[#1877F2]/70 selection:text-white`}
+          className={`${inter.className} bg-[#fff] text-[#F0F2F5] min-h-screen antialiased selection:bg-[#1877F2]/70 selection:text-white`}
         >
           <Toaster />
           {children}
