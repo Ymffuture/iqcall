@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -10,6 +11,13 @@ import {
 
 import Alert from './Alert';
 import { Button } from './ui/button';
+
+import {
+  Video,
+  VideoOff,
+  Mic,
+  MicOff
+} from 'lucide-react';
 
 const MeetingSetup = ({
   setIsSetupComplete,
@@ -38,45 +46,47 @@ const MeetingSetup = ({
     }
   }, [isMicCamToggled, call.camera, call.microphone]);
 
-  if (callTimeNotArrived)
-    return (
-      <Alert title={`Your Meeting is scheduled for ${callStartsAt.toLocaleString()}`} />
-    );
+  if (callTimeNotArrived) {
+    return <Alert title={`Your Meeting is scheduled for ${callStartsAt.toLocaleString()}`} />;
+  }
 
-  if (callHasEnded)
-    return (
-      <Alert title="The call has ended." iconUrl="/icons/call-ended.svg" />
-    );
+  if (callHasEnded) {
+    return <Alert title="The call has ended." iconUrl="/icons/call-ended.svg" />;
+  }
 
   return (
-    <div className="flex h-screen w-full flex-col items-center justify-center bg-[#f8f9fa] px-4 py-8">
+    <div className="flex h-screen w-full flex-col items-center justify-center bg-gradient-to-br from-[#f1f5f9] to-[#e2e8f0] px-4 py-8 text-gray-800">
       {/* Header */}
-      <h1 className="text-3xl font-semibold text-gray-800 mb-6">Get Ready</h1>
+      <h1 className="text-3xl font-semibold mb-6">Setup Your Meeting</h1>
 
-      {/* Video Preview Section */}
-      <div className="w-full max-w-xl rounded-xl overflow-hidden shadow-lg border border-gray-300 bg-white">
+      {/* Video Preview */}
+      <div className="w-full max-w-xl rounded-2xl overflow-hidden bg-white border border-gray-200 shadow-2xl p-2 backdrop-blur-md">
         <VideoPreview />
       </div>
 
-      {/* Controls */}
-      <div className="mt-6 flex w-full max-w-xl items-center justify-between px-2">
-        {/* Toggle */}
-        <label className="flex items-center gap-3 text-sm text-gray-700 font-medium">
-          <span>Join with mic/cam off</span>
-          <div className="relative inline-block w-11 h-6">
-            <input
-              type="checkbox"
-              id="micCamToggle"
-              className="opacity-0 w-0 h-0 peer"
-              checked={isMicCamToggled}
-              onChange={(e) => setIsMicCamToggled(e.target.checked)}
-            />
-            <div className="absolute inset-0 bg-gray-300 rounded-full peer-checked:bg-green-500 transition-all"></div>
-            <div className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm transition-all peer-checked:translate-x-5"></div>
-          </div>
-        </label>
+      {/* Toggle & Device Settings */}
+      <div className="mt-6 flex w-full max-w-xl items-center justify-between flex-wrap gap-4">
+        <div className="flex items-center gap-5">
+          <button
+            onClick={() => setIsMicCamToggled(!isMicCamToggled)}
+            className="flex items-center gap-2 rounded-lg border px-4 py-2 shadow-md transition-all bg-white hover:bg-gray-100 text-sm font-medium"
+          >
+            {isMicCamToggled ? (
+              <>
+                <VideoOff className="text-red-500" size={18} />
+                <MicOff className="text-red-500" size={18} />
+                <span className="text-red-500">Mic & Cam Off</span>
+              </>
+            ) : (
+              <>
+                <Video className="text-green-600" size={18} />
+                <Mic className="text-green-600" size={18} />
+                <span className="text-green-600">Mic & Cam On</span>
+              </>
+            )}
+          </button>
+        </div>
 
-        {/* Device Settings */}
         <DeviceSettings />
       </div>
 
@@ -86,13 +96,12 @@ const MeetingSetup = ({
           call.join();
           setIsSetupComplete(true);
         }}
-        className="mt-6 bg-[#1A73E8] hover:bg-[#0F59C9] text-white font-medium px-6 py-3 rounded-md shadow-md transition-all"
+        className="mt-8 rounded-md bg-[#1a73e8] px-6 py-3 text-white hover:bg-[#1558d6] transition-all font-semibold text-sm shadow-lg"
       >
-        Join meeting
+        Join Meeting
       </Button>
     </div>
   );
 };
 
 export default MeetingSetup;
-
