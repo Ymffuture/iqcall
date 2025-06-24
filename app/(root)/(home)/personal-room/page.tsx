@@ -1,5 +1,5 @@
 "use client";
-
+import {Helmet} from "react-helmet" ;
 import { useUser } from "@clerk/nextjs";
 import { useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useRouter } from "next/navigation";
@@ -49,6 +49,11 @@ const PersonalRoom = () => {
 
   return (
     <section className="flex w-full flex-col gap-10 text-white">
+      <Helmet >
+      <title >
+      Personal room
+      </title >
+      </Helmet>
       <header className="space-y-2">
         <h1 className="text-3xl font-bold text-white tracking-tight">Personal Meeting Room</h1>
         <p className="text-sm text-gray-400">Manage your private room and send invites to friends or clients.</p>
